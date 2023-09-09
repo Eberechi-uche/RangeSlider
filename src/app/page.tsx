@@ -1,12 +1,16 @@
 import RangeSelector, { RangeItem } from "@/components/ui/rangeSelector";
 import styles from "./page.module.css";
-import { SelectorItems } from "@/components/radioButtonSelector";
+import { RadioSelector, SelectorItems } from "@/components/radioButtonSelector";
+import { SelectorLayout } from "@/components/ui/layout.tsx/SelectorLayout";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <RangeSelector range={6} name="Rows" />
-      <SelectorItems value="Test" />
+      <SelectorLayout>
+        <RangeSelector range={6} name="Rows" />
+        <RangeSelector range={6} name="columns" />
+        <RadioSelector />
+      </SelectorLayout>
     </main>
   );
 }

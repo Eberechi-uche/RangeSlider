@@ -22,7 +22,7 @@ export default function RangeSelector({
       flexDir={"column"}
       alignItems={"center"}
     >
-      <Text fontSize={"13px"} p={"15.2px"}>
+      <Text fontSize={"13px"} p={"15.2px"} textTransform={"capitalize"}>
         {name}
       </Text>
       <Flex align={"center"}>
@@ -63,7 +63,7 @@ export function RangeItem(props: RangeItemProp) {
         cursor={"pointer"}
       >
         <Box
-          w={"128.25px"}
+          w={"30.25px"}
           h={"3.38px"}
           bg={props.pickedRange >= props.id ? "#5978E8" : "#FDFBF7"}
           borderRadius={props.id === 1 ? "full" : "none"}

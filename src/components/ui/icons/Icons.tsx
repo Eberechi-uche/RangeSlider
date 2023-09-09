@@ -3,7 +3,7 @@ import { Icon } from "@chakra-ui/react";
 export function CheckedIconChecked() {
   return (
     <>
-      <Icon>
+      <Icon fontSize={"2xl"}>
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
@@ -23,7 +23,7 @@ export function CheckedIconChecked() {
 export function CheckedIconUnChecked() {
   return (
     <>
-      <Icon>
+      <Icon fontSize={"2xl"}>
         <path
           d="M6.06374 3.49743H16.6709C18.1354 3.49743 19.3227 4.70326 19.3227 6.19073V16.9639C19.3227 18.4514 18.1354 19.6572 16.6709 19.6572H6.06374C4.59919 19.6572 3.41195 18.4514 3.41195 16.9639V6.19073C3.41195 4.70326 4.59919 3.49743 6.06374 3.49743ZM6.06374 5.29296C5.57556 5.29296 5.17981 5.6949 5.17981 6.19073V16.9639C5.17981 17.4597 5.57556 17.8617 6.06374 17.8617H16.6709C17.1591 17.8617 17.5548 17.4597 17.5548 16.9639V6.19073C17.5548 5.6949 17.1591 5.29296 16.6709 5.29296H6.06374Z"
           fill="#5978E8"
