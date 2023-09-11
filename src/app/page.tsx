@@ -1,14 +1,14 @@
-import RangeSelector, { RangeItem } from "@/components/ui/rangeSelector";
 import styles from "./page.module.css";
-import { RadioSelector, SelectorItems } from "@/components/radioButtonSelector";
+import { RadioSelector } from "@/components/radioButtonSelector";
+import RangeSelectorContainer from "@/components/ui/rangeSelector";
 import { SelectorLayout } from "@/components/ui/layout.tsx/SelectorLayout";
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <SelectorLayout>
-        <RangeSelector range={6} name="Rows" />
-        <RangeSelector range={6} name="columns" />
+        <RangeSelectorContainer range={6} label="rows" />
+        <RangeSelectorContainer range={6} label="columns" />
         <RadioSelector />
       </SelectorLayout>
     </main>

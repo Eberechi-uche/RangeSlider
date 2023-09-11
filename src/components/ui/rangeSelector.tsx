@@ -3,16 +3,31 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useState } from "react";
 
-export default function RangeSelector({
+export default function RangeSelectorContainer({
   range,
-  name,
+  label,
 }: {
   range: number;
-  name: string;
+  label: string;
 }) {
   const [rangeItems, setRangeItem] = useState([
     Array.from({ length: range }, (item, index) => index),
   ]);
+
+  return (
+    <>
+      <RangeSelector label={label} rangeItems={rangeItems[0]} />
+    </>
+  );
+}
+
+function RangeSelector({
+  rangeItems,
+  label,
+}: {
+  rangeItems: number[];
+  label: string;
+}) {
   const [pickedRange, setPickedRange] = useState(0);
   return (
     <Flex
@@ -23,20 +38,22 @@ export default function RangeSelector({
       alignItems={"center"}
     >
       <Text fontSize={"13px"} p={"15.2px"} textTransform={"capitalize"}>
-        {name}
+        {label}
       </Text>
       <Flex align={"center"}>
         <Flex>
-          {rangeItems[0].map((element) => (
+          {rangeItems.map((element) => (
             <RangeItem
               id={element + 1}
               pickedRange={pickedRange}
               setPickedRange={setPickedRange}
-              zIndex={range + 1}
             />
           ))}
         </Flex>
-        <Text mx={"4"} fontSize={"9.5px"}>{`${pickedRange}/ ${range} `}</Text>
+        <Text
+          mx={"4"}
+          fontSize={"9.5px"}
+        >{`${pickedRange}/ ${rangeItems.length} `}</Text>
       </Flex>
     </Flex>
   );
@@ -46,17 +63,15 @@ type RangeItemProp = {
   id: number;
   pickedRange: number;
   setPickedRange: Dispatch<SetStateAction<number>>;
-  zIndex: number;
 };
 
-export function RangeItem(props: RangeItemProp) {
+function RangeItem(props: RangeItemProp) {
   return (
     <>
       <Flex
         align={"center"}
         position={"relative"}
         p={"0"}
-        zIndex={props.zIndex}
         onClick={() => {
           props.setPickedRange(props.id);
         }}
@@ -77,7 +92,6 @@ export function RangeItem(props: RangeItemProp) {
           border={props.pickedRange >= props.id ? "2px solid" : "0"}
           borderColor={"#5978E8"}
           borderRadius={"full"}
-          zIndex={props.pickedRange === props.id ? 10 : 1}
         />
       </Flex>
     </>
